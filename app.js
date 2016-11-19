@@ -1,6 +1,5 @@
 var express = require('express');//引用express web框架
 var app = express();//实例化
-app.listen(3000);
 //模块提供了一些用于处理文件路径的小工具，我们可以通过以下方式引入该模块：http://www.runoob.com/nodejs/nodejs-path-module.html
 var path = require('path');
 //bodyParser用于解析客户端请求的body中的内容,内部使用JSON编码处理,url编码处理以及对于文件的上传处理
@@ -21,7 +20,7 @@ app.use(session({
         url: 'mongodb://localhost/questionnaire',
         collection: 'sessions'
     }),
-    resave: true,
+    resave: true, 
     saveUninitialized: false
 }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -75,6 +74,7 @@ app.use(function (err, req, res, next) {
     res.send(err.message);
 });
 
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 3000;
+console.log('process.env.PORT ='+ process.env.PORT)
 console.log('listen port ======== ' + port)
 app.listen(port);
