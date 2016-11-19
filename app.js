@@ -1,9 +1,15 @@
-var express = require('express');
-var app = express();
+var express = require('express');//引用express web框架
+var app = express();//实例化
+//模块提供了一些用于处理文件路径的小工具，我们可以通过以下方式引入该模块：http://www.runoob.com/nodejs/nodejs-path-module.html
 var path = require('path');
+//bodyParser用于解析客户端请求的body中的内容,内部使用JSON编码处理,url编码处理以及对于文件的上传处理
 var bodyParser = require('body-parser');
+//用于控制登录session的框架， 如：http://www.cnblogs.com/chenchenluo/p/4197181.html
 var session = require('express-session');
+//连接mongodb
 var MongoStore = require('connect-mongo')(session);
+//http://www.cnblogs.com/zhongweiv/p/mongoose.html Mongoose是在node.js异步环境下对mongodb进行便捷操作的对象模型工具
+//http://mongoosejs.com/docs/guide.html 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/questionnaire');
 
